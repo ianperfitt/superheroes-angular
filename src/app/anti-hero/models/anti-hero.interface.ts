@@ -1,6 +1,6 @@
 export interface AntiHero {
-    firstName: string,
-    lastName: string,
+    firstName: string;
+    lastName: string;
     house: string;
     knownAs: string;
 }

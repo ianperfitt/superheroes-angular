@@ -9,10 +9,10 @@ const routes: Routes = [
   },
   {
     path: "anti-heroes",
-    //lazy load
     loadChildren: () =>
-      import("./anti-hero/anti-hero.module").then((m) => m.AntiHeroModule)
+      import("./anti-hero/anti-hero.module").then((m) => m.AntiHeroModule),
   }
+
 ];
 
 @NgModule({

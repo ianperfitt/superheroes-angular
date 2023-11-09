@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AntiHero } from '../../models/interface';
-
-//Anti-Hero container component that has a direct route
+import { AntiHero } from '../../models/anti-hero.interface';
 
 @Component({
   selector: 'app-list',
@@ -29,6 +27,5 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  selectAntiHero(antiHero: AntiHero) {}
 
 }

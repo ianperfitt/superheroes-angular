@@ -6,10 +6,14 @@ describe('AntiHeroFormComponent', () => {
   let component: AntiHeroFormComponent;
   let fixture: ComponentFixture<AntiHeroFormComponent>;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ AntiHeroFormComponent ]
+    })
+    .compileComponents();
+  });
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AntiHeroFormComponent]
-    });
     fixture = TestBed.createComponent(AntiHeroFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

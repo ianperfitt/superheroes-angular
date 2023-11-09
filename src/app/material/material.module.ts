@@ -16,7 +16,6 @@ import {MatInputModule} from '@angular/material/input';
     MatIconModule,
     MatButtonModule,
     MatTableModule,
-    MatTableModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
@@ -28,7 +27,7 @@ import {MatInputModule} from '@angular/material/input';
     MatTableModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
   ]
 })
 export class MaterialModule { }

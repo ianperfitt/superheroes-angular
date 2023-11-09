@@ -1,20 +1,20 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommandBarActions } from '../../enums/command-bar-actions.enum';
 
-//Anti-Hero presentation component
-
 @Component({
   selector: 'app-anti-hero-command-bar',
   templateUrl: './anti-hero-command-bar.component.html',
-  styleUrls: ['./anti-hero-command-bar.component.sass']
+  styleUrls: ['./anti-hero-command-bar.component.scss']
 })
 export class AntiHeroCommandBarComponent implements OnInit {
   @Output() action = new EventEmitter<CommandBarActions>()
-  constructor() {}
+  constructor() { }
+
   ngOnInit(): void {
-    
   }
+
   emitAction(action: CommandBarActions) {
+    this.action.emit(action);
   }
 
 }
