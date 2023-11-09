@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-//Anti-Hero dumb component
+//Anti-Hero presentation component
 
 @Component({
   selector: 'app-anti-hero-form',

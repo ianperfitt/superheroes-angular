@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AntiHero } from '../../models/interface';
 import { TableActions } from '../../enums/table-actions.enums';
 
-//Anti-Hero dumb component
+//Anti-Hero presentation component
 
 @Component({
   selector: 'app-anti-hero-list',

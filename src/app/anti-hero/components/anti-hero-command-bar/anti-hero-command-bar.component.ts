@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommandBarActions } from '../../enums/command-bar-actions.enum';
 
-//Anti-Hero dumb component
+//Anti-Hero presentation component
 
 @Component({
   selector: 'app-anti-hero-command-bar',
