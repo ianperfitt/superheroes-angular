@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-//Anti-Hero smart component that has a direct route
+//Anti-Hero container component that has a direct route
 
 @Component({
   selector: 'app-form',
