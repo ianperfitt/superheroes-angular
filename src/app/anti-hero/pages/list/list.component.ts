@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AntiHero } from '../../models/interface';
 
+//Anti-Hero smart component that has a direct route
 
 @Component({
   selector: 'app-list',

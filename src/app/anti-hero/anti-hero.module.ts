@@ -8,7 +8,7 @@ import { AntiHeroRoutingModule } from './anti-hero-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { AntiHeroCommandBarComponent } from './components/anti-hero-command-bar/anti-hero-command-bar.component';
 
-
+//Anti-Hero Feature model
 
 @NgModule({
   declarations: [
