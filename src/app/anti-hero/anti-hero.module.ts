@@ -7,6 +7,7 @@ import { AntiHeroRoutingModule } from './anti-hero-routing.module';
 import { ListComponent } from './pages/list/list.component';
 import { FormComponent } from './pages/form/form.component';
 import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     AntiHeroRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
   ]
 })
 export class AntiHeroModule { }
