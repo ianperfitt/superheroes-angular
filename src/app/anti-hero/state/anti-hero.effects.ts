@@ -18,6 +18,7 @@ export class AntiHeroEffects {
             ))
         )
     }, {dispatch: true});
+    
     constructor(
         private actions$: Actions,
         private antiHeroService: AntiHeroService,

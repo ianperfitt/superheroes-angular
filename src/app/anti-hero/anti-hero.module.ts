@@ -8,6 +8,8 @@ import { ListComponent } from './pages/list/list.component';
 import { FormComponent } from './pages/form/form.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { antiHeroReducer } from './state/anti-hero.reducers';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AntiHeroRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    StoreModule.forFeature('antiHeroState', antiHeroReducer)
   ]
 })
 export class AntiHeroModule { }
