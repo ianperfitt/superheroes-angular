@@ -47,10 +47,9 @@ export class ListComponent implements OnInit {
         return;
       }
       case TableActions.Delete: {
-        this.store.dispatch({type:
-          AntiHeroActions.REMOVE_ANTI_HERO_STATE,
-          antiHeroId: data.antiHero.id});
+        this.store.dispatch({type: AntiHeroActions.REMOVE_ANTI_HERO_API, payload: data.antiHero.id});
         return;
+
       }
       default: ""
     }
