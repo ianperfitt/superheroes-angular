@@ -12,5 +12,5 @@ export const getAntiHeroList = createAction(
 
 export const setAntiHeroList = createAction(
     AntiHeroActions.SET_ANTI_HERO_LIST,
-    props<{ antiHeroes: ReadonlyArray<AntiHero> }>();
+    props<{ antiHeroes: ReadonlyArray<AntiHero> }>()
 )
