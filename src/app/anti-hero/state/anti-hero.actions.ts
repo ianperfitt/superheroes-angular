@@ -1,10 +1,12 @@
 import { createAction, props } from "@ngrx/store";
 import { AntiHero } from "../models/anti-hero.interface";
 
+
 export enum AntiHeroActions {
-    GET_ANTI_HERO_LIST = '[Anti-Hero] Get Anti-Hero list',
-    SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list',
-    REMOVE_ANTI_HERO_STATE = '[Anti-Hero] Remove ALL Anti-Hero (STATE)'
+  GET_ANTI_HERO_LIST = '[Anti-Hero] Get Anti-Hero list',
+  SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list',
+  REMOVE_ANTI_HERO_STATE = '[Anti-Hero] Remove ALL Anti-Hero (STATE)',
+  REMOVE_ALL_ANTI_HERO_API = "REMOVE_ALL_ANTI_HERO_API"
 }
 
 export const removeAntiHeroState = createAction(

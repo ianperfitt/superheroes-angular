@@ -14,7 +14,6 @@ import { AntiHeroActions } from '../../state/anti-hero.actions';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  // sample data of anti hero
   antiHeroes: ReadonlyArray<AntiHero> = [];
   antiHeroes$ = this.store.select(selectAntiHeroes());
 
@@ -36,9 +35,9 @@ export class ListComponent implements OnInit {
   }
 
   assignAntiHeroes() {
-    this.antiHeroes$.subscribe((data) => {
+    this.antiHeroes$.subscribe((data: readonly AntiHero[]) => {
       this.antiHeroes = data;
-    })
+    });
   }
 
   selectAntiHero(data: {antiHero: AntiHero, action: TableActions}) {
