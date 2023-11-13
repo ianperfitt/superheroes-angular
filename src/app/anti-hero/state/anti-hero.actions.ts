@@ -3,14 +3,23 @@ import { AntiHero } from "../models/anti-hero.interface";
 
 
 export enum AntiHeroActions {
-  GET_ANTI_HERO_LIST = '[Anti-Hero] Get Anti-Hero list',
-  SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list',
-  REMOVE_ANTI_HERO_STATE = '[Anti-Hero] Remove ALL Anti-Hero (STATE)',
-  REMOVE_ALL_ANTI_HERO_API = "REMOVE_ALL_ANTI_HERO_API",
-  REMOVE_ANTI_HERO_API = '[Annti-Hero] Remove Anti-Hero (API)'
+    GET_ANTI_HERO_LIST = '[Anti-Hero] Get Anti-Hero list',
+    SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list',
+    ADD_ANTI_HERO_API = '[Anti-Hero] Add Anti-Hero (API',
+    ADD_ANTI_HERO_STATE = '[Anti-Hero] Add Anti-Hero (STATE)',
+    MODIFY_ANTI_HERO_API = '[Anti-Hero] Modify Anti-Hero (API)',
+    MODIFY_ANTI_HERO_STATE = '[Anti-Hero] Modify Anti-Hero (STATE)',
+    REMOVE_ANTI_HERO_API = '[Anti-Hero] Remove Anti-Hero (API)',
+    REMOVE_ANTI_HERO_STATE = '[Anti-Hero] Remove Anti-Hero (STATE)',
+    REMOVE_ALL_ANTI_HERO_API = '[Anti-Hero] Remove All Anti-Hero (API)',
+    REMOVE_ALL_ANTI_HERO_STATE = '[Anti-Hero] Remove ALL Anti-Hero (STATE)',
 }
 
-//no data is removed from database with this action
+export const addAntiHeroState = createAction(
+    AntiHeroActions.ADD_ANTI_HERO_STATE,
+    props<{ antiHero: AntiHero }>()
+);
+
 export const removeAntiHeroState = createAction(
     AntiHeroActions.REMOVE_ANTI_HERO_STATE,
     props<{ antiHeroId: string}>()
@@ -23,4 +32,4 @@ export const getAntiHeroList = createAction(
 export const setAntiHeroList = createAction(
     AntiHeroActions.SET_ANTI_HERO_LIST,
     props<{ antiHeroes: ReadonlyArray<AntiHero> }>()
-)
+);
