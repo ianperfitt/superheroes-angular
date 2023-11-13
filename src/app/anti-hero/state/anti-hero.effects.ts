@@ -19,6 +19,22 @@ export class AntiHeroEffects {
         )
     }, {dispatch: true});
     
+    removeAntiHero$  = createEffect(()  => {
+        return this.actions$.pipe(
+            ofType(AntiHeroActions.REMOVE_ANTI_HERO_API),
+            mergeMap((data: { payload: string}) =>
+                this.antiHeroService.deleteAntiHero(data.payload)
+                .pipe(
+                    map(() => ({type:
+                        AntiHeroActions.REMOVE_ANTI_HERO_STATE,
+                        antiHeroId: data.payload })),
+                    catchError(() => EMPTY)
+                ))
+            )
+        }, {dispatch: true}
+    );
+
+
     constructor(
         private actions$: Actions,
         private antiHeroService: AntiHeroService,
