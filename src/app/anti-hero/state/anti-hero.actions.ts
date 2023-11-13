@@ -3,8 +3,14 @@ import { AntiHero } from "../models/anti-hero.interface";
 
 export enum AntiHeroActions {
     GET_ANTI_HERO_LIST = '[Anti-Hero] Get Anti-Hero list',
-    SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list'
+    SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list',
+    REMOVE_ANTI_HERO_STATE = '[Anti-Hero] Remove ALL Anti-Hero (STATE)'
 }
+
+export const removeAntiHeroState = createAction(
+    AntiHeroActions.REMOVE_ANTI_HERO_STATE,
+    props<{ antiHeroId: string}>()
+);
 
 export const getAntiHeroList = createAction(
     AntiHeroActions.GET_ANTI_HERO_LIST,
