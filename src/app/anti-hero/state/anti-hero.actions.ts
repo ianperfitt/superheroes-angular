@@ -6,9 +6,11 @@ export enum AntiHeroActions {
   GET_ANTI_HERO_LIST = '[Anti-Hero] Get Anti-Hero list',
   SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list',
   REMOVE_ANTI_HERO_STATE = '[Anti-Hero] Remove ALL Anti-Hero (STATE)',
-  REMOVE_ALL_ANTI_HERO_API = "REMOVE_ALL_ANTI_HERO_API"
+  REMOVE_ALL_ANTI_HERO_API = "REMOVE_ALL_ANTI_HERO_API",
+  REMOVE_ANTI_HERO_API = '[Annti-Hero] Remove Anti-Hero (API)'
 }
 
+//no data is removed from database with this action
 export const removeAntiHeroState = createAction(
     AntiHeroActions.REMOVE_ANTI_HERO_STATE,
     props<{ antiHeroId: string}>()
