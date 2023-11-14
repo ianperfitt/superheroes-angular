@@ -51,6 +51,18 @@ export class AntiHeroEffects {
     }, {dispatch: true}
     ); 
 
+    modifyAntiHero$ = createEffect(() =>{
+        return this.actions$.pipe(
+            ofType(AntiHeroActions.MODIFY_ANTI_HERO_API),
+            mergeMap((data: {type: string, payload: AntiHero}) => this.antiHeroService.updateAntiHero(data.payload.id, data.payload)
+              .pipe(
+                map(antiHeroes => ({ type: AntiHeroActions.MODIFY_ANTI_HERO_STATE, antiHero: data.payload })),
+                tap(() =>  this.router.navigate(["anti-heroes"])),
+                catchError(() => EMPTY)
+              ))
+            )
+        }, {dispatch: true})
+
 
     constructor(
         private actions$: Actions,
