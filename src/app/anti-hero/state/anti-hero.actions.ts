@@ -17,7 +17,7 @@ export enum AntiHeroActions {
 
 export const modifyAntiHeroState = createAction(
     AntiHeroActions.MODIFY_ANTI_HERO_STATE,
-    props<{ anti: AntiHero}>()
+    props<{ antiHero: AntiHero}>()
 );
 
 export const addAntiHeroState = createAction(
