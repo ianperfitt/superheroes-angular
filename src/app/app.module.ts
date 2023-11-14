@@ -11,7 +11,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HeaderInterceptor } from './core/services/interceptors/header.interceptor';
+import { HeaderInterceptor } from './core/interceptors/header.interceptor';
 
 @NgModule({
   declarations: [
