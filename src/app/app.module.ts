@@ -10,6 +10,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './core/services/interceptors/header.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, autoPause: true }),
     EffectsModule.forRoot([])
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass:
+    HeaderInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
