@@ -4,12 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { MaterialModule } from '../material/material.module';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { LoginComponent } from './page/login/login.component';
+import { RegisterComponent } from './page/register/register.component';
 
 
 
 @NgModule({
   declarations: [
-    AuthFormComponent
+    AuthFormComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
