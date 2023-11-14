@@ -15,6 +15,11 @@ export enum AntiHeroActions {
     REMOVE_ALL_ANTI_HERO_STATE = '[Anti-Hero] Remove ALL Anti-Hero (STATE)',
 }
 
+export const modifyAntiHeroState = createAction(
+    AntiHeroActions.MODIFY_ANTI_HERO_STATE,
+    props<{ anti: AntiHero}>()
+);
+
 export const addAntiHeroState = createAction(
     AntiHeroActions.ADD_ANTI_HERO_STATE,
     props<{ antiHero: AntiHero }>()
