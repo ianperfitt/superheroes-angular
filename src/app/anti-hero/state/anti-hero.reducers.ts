@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { AntiHero } from '../models/anti-hero.interface';
-import { removeAntiHeroState, setAntiHeroList } from './anti-hero.actions';
+import { addAntiHeroState, removeAntiHeroState, setAntiHeroList } from './anti-hero.actions';
 
 export interface AntiHeroState {
     antiHeroes: ReadonlyArray<AntiHero>;
@@ -15,7 +15,9 @@ export const antiHeroReducer = createReducer(
   on(setAntiHeroList, (state, { antiHeroes }) => { return {...state, antiHeroes}}),
   on(removeAntiHeroState, (state, { antiHeroId}) => {
     return {...state, antiHeroes:
-    state.antiHeroes.filter(data => data.id != antiHeroId)}
-  })
-
+    state.antiHeroes.filter(data => data.id != antiHeroId)}}),
+    on(addAntiHeroState, (state, {antiHero}) => {
+      return {...state, antiHeroes: [...state.antiHeroes,
+      antiHero]}
+    }),
   );
