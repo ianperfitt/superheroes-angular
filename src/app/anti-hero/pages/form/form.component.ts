@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AntiHeroActions } from '../../state/anti-hero.actions';
 import { AntiHero } from '../../models/anti-hero.interface';
+import { AppState } from 'src/app/state/app.state';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-form',
@@ -9,12 +11,11 @@ import { AntiHero } from '../../models/anti-hero.interface';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  id = "";
-  store: any;
-  constructor(private router: ActivatedRoute) { }
+  antiHero: AntiHero | null = null;
+  
+  constructor(private router: ActivatedRoute, private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.id = this.router.snapshot.params['id'];
   }
 
   formAction(data: {value: AntiHero, action: string}) {
