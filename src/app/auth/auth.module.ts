@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { MaterialModule } from '../material/material.module';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AuthFormComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
