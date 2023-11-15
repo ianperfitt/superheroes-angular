@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { LoginComponent } from './page/login/login.component';
 import { RegisterComponent } from './page/register/register.component';
+import { AuthRoutingModule } from './auth-routing.module';
 
 
 
@@ -20,6 +21,7 @@ import { RegisterComponent } from './page/register/register.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    AuthRoutingModule,
     CoreModule
   ]
 })
