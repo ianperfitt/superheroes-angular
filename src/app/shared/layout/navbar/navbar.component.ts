@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  @Output() actionEmitter = new EventEmitter();
+  @Input() loggedIn = false;
+
+  submit(action: string) {
+    this.actionEmitter.emit(action)
+  }
 
   ngOnInit(): void {
   }
