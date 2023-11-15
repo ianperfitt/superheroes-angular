@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './core/interceptors/header.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeaderInterceptor } from './core/interceptors/header.interceptor';
     HttpClientModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, autoPause: true }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    JwtModule.forRoot({})
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass:
     HeaderInterceptor, multi: true}
