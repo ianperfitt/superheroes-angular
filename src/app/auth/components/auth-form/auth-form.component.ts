@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-auth-form',
