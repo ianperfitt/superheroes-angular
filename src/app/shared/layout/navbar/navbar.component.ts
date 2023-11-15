@@ -11,8 +11,10 @@ export class NavbarComponent implements OnInit {
   @Input() loggedIn = false;
 
   submit(action: string) {
-    this.actionEmitter.emit(action)
+    this.actionEmitter.emit(action);
   }
+
+  constructor() { }
 
   ngOnInit(): void {
   }

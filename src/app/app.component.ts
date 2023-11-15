@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthenticateService } from './core/services/authenticate.service';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthenticateService } from './core/services/authenticate.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   submit(action: string) {
-    switch (action) {
+    switch(action) {
       case 'logout':
         this.authService.doLogout();
         break;
@@ -30,7 +30,7 @@ export class AppComponent {
       if(data instanceof NavigationEnd) {
         this.url = data.url;
       }
-    })
+    });
   }
 
 }

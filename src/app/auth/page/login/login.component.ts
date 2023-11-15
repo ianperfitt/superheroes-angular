@@ -12,7 +12,6 @@ export class LoginComponent{
   constructor(private authService: AuthenticateService, private router: Router) {
     this.checkJWT();
   }
-  
   submit(data:{email:string, password:string}) {
     this.authService.login(data).subscribe((data) => {
       this.router.navigate(['/anti-heroes']);
@@ -24,5 +23,5 @@ export class LoginComponent{
     if(this.authService.isAuthenticated()) {
       this.router.navigate(['/anti-heroes'])
     }
-  }
+  }  
 }

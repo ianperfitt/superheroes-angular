@@ -14,6 +14,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './core/interceptors/header.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,11 @@ import { JwtModule } from '@auth0/angular-jwt';
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, autoPause: true }),
     EffectsModule.forRoot([]),
-    JwtModule.forRoot({})
+    JwtModule.forRoot({ // for JwtHelperService
+      config: {
+        tokenGetter
+      }
+    })
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass:
     HeaderInterceptor, multi: true}
