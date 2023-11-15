@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -8,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthenticateService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   login(data: {email: string, password: string}):
     Observable<any> {
@@ -28,4 +29,11 @@ export class AuthenticateService {
             catchError(err => throwError(() => err))
           )
       }
+    
+    isAuthenticated(): boolean {
+      const token = localStorage.getItem('token') ?? '';
+      // Check whether thee token is expired and return
+      // true or false
+      return !this.jwtHelper.isTokenExpired(token);
+    }
 }
