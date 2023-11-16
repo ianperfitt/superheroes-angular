@@ -1,21 +1,15 @@
-private actions$: Actions,
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import { AuthenticateService } from 'src/app/core/services/authenticate.service';
 import { User } from '../models/user.interface';
 import { AuthActions } from './auth.actions';
 
-
-
- 
 @Injectable()
 export class AuthEffects {
  
-
-  loginUser$ = createEffect(() => {
+loginUser$ = createEffect(() => {
     return this.actions$.pipe(
         ofType(AuthActions.LOGIN),
         mergeMap(((data: {type: string, payload: User}) => this.authService.login(data.payload)
