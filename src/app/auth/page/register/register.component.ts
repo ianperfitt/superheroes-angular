@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticateService } from 'src/app/core/services/authenticate.service';
+import { Store } from '@ngrx/store';
 import { User } from '../../models/user.interface';
+import { AuthActions } from '../../state/auth.actions';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   error: string = "";
 
-  constructor(private authService: AuthenticateService, private router: Router) {
+  constructor(private store: Store) {
 
+  }
+
+  ngOnInit(): void {
+    
   }
 
   submit(data: User) {
-    this.authService.register(data).subscribe((data) => {
-      this.router.navigate(['/']);
-    });
-  }
-}
+    this.store.dispatch({type: AuthActions.CREATE_USER, payload: data})
 
+  }
+
+}
