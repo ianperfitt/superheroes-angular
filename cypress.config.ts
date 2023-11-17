@@ -6,6 +6,6 @@ export default defineConfig({
       // implement node event listeners here
     },
     baseUrl: "http://localhost:4200",
-    video: false;
+    video: false,
   },
 });
