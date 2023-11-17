@@ -7,12 +7,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  @Output() actionEmitter = new EventEmitter();
-  @Input() loggedIn = false;
-
-  submit(action: string) {
-    this.actionEmitter.emit(action);
-  }
 
   constructor() { }
 
