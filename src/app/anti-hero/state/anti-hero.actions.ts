@@ -5,7 +5,7 @@ import { AntiHero } from "../models/anti-hero.interface";
 export enum AntiHeroActions {
     GET_ANTI_HERO_LIST = '[Anti-Hero] Get Anti-Hero list',
     SET_ANTI_HERO_LIST = '[Anti-Hero] Set Anti-Hero list',
-    ADD_ANTI_HERO_API = '[Anti-Hero] Add Anti-Hero (API',
+    ADD_ANTI_HERO_API = '[Anti-Hero] Add Anti-Hero (API)',
     ADD_ANTI_HERO_STATE = '[Anti-Hero] Add Anti-Hero (STATE)',
     MODIFY_ANTI_HERO_API = '[Anti-Hero] Modify Anti-Hero (API)',
     MODIFY_ANTI_HERO_STATE = '[Anti-Hero] Modify Anti-Hero (STATE)',
@@ -38,3 +38,7 @@ export const setAntiHeroList = createAction(
     AntiHeroActions.SET_ANTI_HERO_LIST,
     props<{ antiHeroes: ReadonlyArray<AntiHero> }>()
 );
+
+export const removeAllAntiHeroState = createAction(
+    AntiHeroActions.REMOVE_ALL_ANTI_HERO_STATE
+  );

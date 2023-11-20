@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { AntiHeroService } from "../services/anti-hero.service";
 import { AntiHeroActions } from "./anti-hero.actions";
-import { EMPTY, catchError, map, mergeMap, tap } from "rxjs";
+import { EMPTY, catchError, forkJoin, map, mergeMap, tap } from "rxjs";
 import { AntiHero } from "../models/anti-hero.interface";
 
 @Injectable()
@@ -35,21 +35,19 @@ export class AntiHeroEffects {
         }, {dispatch: true}
     );
 
-    addAntiHero$ = createEffect(() => {
-        return this.actions$.pipe(
-            ofType(AntiHeroActions.ADD_ANTI_HERO_API),
-            mergeMap((data: {type: string, payload: AntiHero}) => 
-            this.antiHeroService.addAntiHero(data.payload)
-                .pipe(map(antiHeroes => ({ type:
-                AntiHeroActions.ADD_ANTI_HERO_STATE,
-                antiHero: data.payload})),
-            tap(() =>
-                    this.router.navigate(["anti-heroes"])),
+    // add anti-heroes in the database
+  addAntiHero$ = createEffect(() =>{
+    console.log('ian');
+    return this.actions$.pipe(
+        ofType(AntiHeroActions.ADD_ANTI_HERO_API),
+        mergeMap((data: {type: string, payload: AntiHero}) => this.antiHeroService.addAntiHero(data.payload)
+          .pipe(
+            map(antiHeroes => ({ type: AntiHeroActions.ADD_ANTI_HERO_STATE, antiHero: data.payload })),
+            tap(() =>  this.router.navigate(["anti-heroes"])),
             catchError(() => EMPTY)
-            ))
+          ))
         )
-    }, {dispatch: true}
-    ); 
+    }, {dispatch: true})
 
     modifyAntiHero$ = createEffect(() =>{
         return this.actions$.pipe(
@@ -62,6 +60,20 @@ export class AntiHeroEffects {
               ))
             )
         }, {dispatch: true})
+
+    // remove all anti-heroes in the database
+  removeAllAntiHero$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(AntiHeroActions.REMOVE_ALL_ANTI_HERO_API),
+        mergeMap((data: {type: string, payload: string[]}) => 
+        forkJoin([...data.payload.map((id) => this.antiHeroService.deleteAntiHero(id))])
+          .pipe(
+            map(() => ({ type: AntiHeroActions.REMOVE_ALL_ANTI_HERO_STATE })),
+            catchError(() => EMPTY)
+          ))
+        )
+    }, {dispatch: true}
+  );
 
 
     constructor(

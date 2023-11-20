@@ -36,8 +36,8 @@ export class AntiHeroFormComponent implements OnInit {
   }
 
   patchDataValues () {
-    //this will be implemented in the future (for update feature)
-   // this.form.patchValue();
+    if(this.selectedAntiHero)
+      this.form.patchValue(this.selectedAntiHero);
   }
 
   emitAction() {
